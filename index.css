@@ -1,0 +1,126 @@
+@font-face {
+    font-family: JetBrains;
+    src: url(./assets/fonts/JetBrainsMono-VariableFont_wght.ttf);
+}
+
+:root {
+    /* Heights / Widths */
+    --padding-password-container: 2rem;
+    --width-password-container: 33rem;
+    --height-password-container: 33.75rem;
+    --height-passwordOutput-container: 5rem;
+    --button-height: 4.0625rem;
+    --button-width: 29.75rem;
+
+    /* Font sizes/ weight(s) */
+    --heading-l-font-size: 2rem;
+    --heading-l-line-height: 2.6875rem;
+    --heading-m-font-size: 1.5rem;
+    --heading-m-line-height: 1.9375rem;
+    --body-font-size: 1.125rem;
+    --body-line-height: 1.4375rem;
+    --font-weight: 700;
+
+    /*Color pallete*/
+    --body-bg-color: hsl(248, 22%, 4%);
+    --strength-container-bg-color: hsl(248, 15%, 11%);
+    --password-generator-bg-color: hsl(248, 10%, 15%);
+    --main-text-color: hsl(252, 11%, 91%);
+    --secondary-text-color: hsl(251, 9%, 53%);
+    --call-to-action-color: hsl(127, 100%, 82%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'JetBrains';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--body-bg-color);
+    font-weight: var(--font-weight);
+    color: var(--main-text-color);
+}
+
+.section--passwordOutput {
+    width: 100%;
+    height: var(--height-passwordOutput-container);
+    margin-bottom: 1.5rem;
+    background-color: var(--password-generator-bg-color);
+}
+
+.form--main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: var(--padding-password-container);
+    background-color: var(--password-generator-bg-color);
+}
+
+.section--main {
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding);
+    width: var(--width-password-container);
+    height: var(--height-password-container);
+}
+
+.block--upper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: .3rem;
+    margin-bottom: 1.5rem;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: red;
+    border-radius: 50%;
+    height: 1.75rem;
+    width: 1.75rem;
+}
+
+.slider::-moz-range-thumb {
+    appearance: none;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+}
+
+.block--characterNumber {
+    color: var(--call-to-action-color);
+    font-size: var(--heading-l-font-size);
+    line-height: var(--heading-l-line-height);
+}
+
+.block--strengthContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--padding-password-container);
+    background-color: var(--strength-container-bg-color);
+}
+
+.button {
+    font-family: inherit;
+    font-weight: inherit;
+    background-color: var(--call-to-action-color);
+    border: none;
+    width: 100%;
+    height: var(--button-height);
+}
+
+.meter {
+    margin-bottom: 1.5rem;
+}

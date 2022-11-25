@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+
+    <main>
+        <section aria-label="password generator app" class="section section--main">
+            <section class="section section--passwordOutput" aria-label="password output"></section>
+            <form class="form form--main">
+                <div class="block block--upper">
+                    <label for="mainSlider">Character Length </label>
+                    <div class="block block--characterNumber">3</div>
+                </div>
+                <input type="range" min="8" max="20" class="slider" id="mainSlider" />
+                <div class="block block--checkboxItem">
+                    <input id="uppercase" type="checkbox" />
+                    <label class="label" for="uppercase">Include Uppercase Letters</label>
+                </div>
+                <div class="block block--checkboxItem">
+                    <input id="lowercase" type="checkbox" />
+                    <label class="label" for="lowercase">Include Lowercase Letters</label>
+                </div>
+                <div class="block block--checkboxItem">
+                    <input id="numbers" type="checkbox" />
+                    <label class="label" for="numbers">Include Numbers</label>
+                </div>
+                <div>
+                    <input id="symbols" type="checkbox" />
+                    <label class="label" for="symbols">Include Symbols</label>
+                </div>
+                <div class="block block--strengthContainer">
+                    <div>STRENGTH</div>
+                    <div>MEDIUM
+                        <div class="block block--meterRatings">
+                            <div class="block block--meterRating"></div>
+                            <div class="block block--meterRating"></div>
+                            <div class="block block--meterRating"></div>
+                            <div class="block block--meterRating"></div>
+                        </div>
+                    </div>
+                </div>
+                <button class="button">Generate</button>
+            </form>
+        </section>
+    </main>
+
+</body>
+
+</html>
