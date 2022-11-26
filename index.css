@@ -7,8 +7,9 @@
     /* Heights / Widths */
     --padding-password-container: 2rem;
     --width-password-container: 33rem;
-    --height-password-container: 33.75rem;
+    --height-password-container: 38rem;
     --height-passwordOutput-container: 5rem;
+    --height-strength-container: 4.5rem;
     --button-height: 4.0625rem;
     --button-width: 29.75rem;
 
@@ -48,18 +49,58 @@ body {
     color: var(--main-text-color);
 }
 
+.h1--header {
+    text-align: center;
+    color: var(--secondary-text-color);
+    font-size: var(--heading-m-font-size);
+    margin-bottom: 2rem;
+}
+
 .section--passwordOutput {
+    position: relative;
     width: 100%;
     height: var(--height-passwordOutput-container);
     margin-bottom: 1.5rem;
+    font-size: var(--heading-l-font-size);
+    line-height: var(--heading-l-line-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     background-color: var(--password-generator-bg-color);
+}
+
+.input--checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 1.35rem;
+    height: 1.35rem;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.input--checkbox:disabled {
+    cursor: not-allowed;
+}
+
+.svg--copy {
+    cursor: pointer;
+}
+
+
+.svg--check {
+    position: relative;
+    top: .35rem;
+    left: .25rem;
+    z-index: 1;
 }
 
 .form--main {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: var(--padding-password-container);
+    padding: 1.5rem 2rem 1.5rem 2rem;
     background-color: var(--password-generator-bg-color);
 }
 
@@ -71,8 +112,57 @@ body {
     height: var(--height-password-container);
 }
 
+.label--mainSlider,
+.label--checkbox,
+.h2--strength {
+    font-size: var(--body-font-size);
+    line-height: var(--body-line-height);
+}
+
+.slider {
+    background: linear-gradient(to right, hsl(127, 100%, 82%) 0%, hsl(127, 100%, 82%) 50%, var(--strength-container-bg-color) 50%, var(--strength-container-bg-color) 100%);
+    height: 7px;
+    transition: background 450ms ease-in;
+    -webkit-appearance: none;
+}
+
+.label--checkbox::before,
+.label--checkbox::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    height: 1.1rem;
+    width: 1.1rem;
+    border: 2px solid var(--main-text-color);
+    z-index: 0;
+    background-color: var(--call-to-action-color);
+    cursor: pointer;
+}
+
+.label--checkbox::after {
+    z-index: 1;
+    background-color: var(--password-generator-bg-color);
+}
+
+.input--checkbox:checked~.label--checkbox::before {
+    background-color: var(--call-to-action-color);
+    border: none;
+    height: 1.35rem;
+    width: 1.35rem;
+}
+
+.input--checkbox:checked~.label--checkbox::after {
+    z-index: -1;
+}
+
+.h2--strength {
+    color: var(--secondary-text-color);
+}
+
 .block--upper {
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -80,13 +170,14 @@ body {
     -webkit-appearance: none;
     appearance: none;
     height: .3rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
 }
 
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    background-color: red;
+    background-color: var(--main-text-color);
     border-radius: 50%;
     height: 1.75rem;
     width: 1.75rem;
@@ -105,22 +196,54 @@ body {
     line-height: var(--heading-l-line-height);
 }
 
+.block--meterRating {
+    height: 1.75rem;
+    border: 2px solid var(--main-text-color);
+    width: .65rem;
+}
+
+.h2--strengthCalc,
+.block--meterRatings {
+    display: flex;
+}
+
+.block--meterRatings {
+    margin-left: 1rem;
+    gap: .5rem;
+}
+
 .block--strengthContainer {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    margin-bottom: 2rem;
+    height: var(--height-strength-container);
     padding: var(--padding-password-container);
     background-color: var(--strength-container-bg-color);
+}
+
+.block--checkboxItem {
+    display: flex;
+    gap: 1.5rem;
+    position: relative;
+    margin-bottom: 1.25rem;
+}
+
+.block--checkboxItem:nth-child(6) {
+    margin-bottom: 2rem;
 }
 
 .button {
     font-family: inherit;
     font-weight: inherit;
+    font-size: var(--body-font-size);
     background-color: var(--call-to-action-color);
     border: none;
     width: 100%;
     height: var(--button-height);
+    cursor: pointer;
 }
 
-.meter {
-    margin-bottom: 1.5rem;
+.button:hover {
+    background-color: hsl(127, 51%, 70%);
 }

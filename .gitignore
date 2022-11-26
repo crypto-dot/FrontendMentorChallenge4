@@ -10,3 +10,6 @@
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+assets/.DS_Store
+assets/fonts/.DS_Store
