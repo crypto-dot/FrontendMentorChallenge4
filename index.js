@@ -1,3 +1,4 @@
+
 (function styleSliderDisplayValue() {
     document.getElementById("mainSlider").addEventListener("input", (e) => {
         let value = (e.target.value - e.target.min) / (e.target.max - e.target.min) * 100;
@@ -6,12 +7,23 @@
     });
 })();
 
+
+(function AtLeastOneCheckBoxCheck() {
+
+})();
+
+
+
 (function formSubmissionProcess() {
     const form = document.getElementById("form");
     const passwordOutput = document.getElementById("passwordOutput");
-    const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
-    const lowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    const uppercase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    const strengthOutput = document.getElementById("strengthOutput");
+    const meterRating1 = document.getElementById("meterRating1");
+    const meterRating2 = document.getElementById("meterRating2");
+    const meterRating3 = document.getElementById("meterRating3");
+    const meterRating4 = document.getElementById("meterRating4");
+    const numbers = '1234567890';
+    const lowercase = 'abcdefghijklmnopqrstuvwxyz';
     const symbols = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '{', '[', '}', ']', '|', '\\', ':', ';', '"', "'", '<', ',', '>', '.', '?', '/', ' '];
 
     (function formSubmissionEventHandler() {
@@ -21,36 +33,126 @@
             const uppercaseInput = document.getElementById("uppercase");
             const symbolsInput = document.getElementById("symbols");
             const numbersInput = document.getElementById("numbers");
-            const possibleEntries = generatePossibleEntries(lowercaseInput.checked, uppercaseInput.checked, symbolsInput.checked, numbersInput.checked);
+            const password = generatePassword(lowercaseInput.checked, uppercaseInput.checked, symbolsInput.checked, numbersInput.checked);
 
-            const password = generatePassword(possibleEntries);
             passwordOutput.textContent = password;
+            const passwordStrength = setPasswordStrength(password);
+            clearBackgroundColorMeters();
+            fillPasswordStrengthMeter(passwordStrength);
         });
     })();
 
-    function generatePossibleEntries(hasLowercase, hasUppercase, hasSymbols, hasNumbers) {
-        let possibleEntries = [];
-        if (hasLowercase) {
-            possibleEntries.push(...lowercase);
+    function setPasswordStrength(password) {
+        debugger;
+        const passwordStrength = checkPasswordStrength(password);
+        if (passwordStrength >= 3) {
+            strengthOutput.textContent = "STRONG";
+            return "STRONG";
+        } else if (passwordStrength === 2) {
+            strengthOutput.textContent = "MEDIUM";
+            return "MEDIUM";
+        } else if (passwordStrength === 1) {
+            strengthOutput.textContent = "WEAK";
+            return "WEAK";
+        } else if (passwordStrength === 0) {
+            strengthOutput.textContent = "TOO WEAK!";
+            return "TOO WEAK!"
         }
-        if (hasNumbers) {
-            possibleEntries.push(...numbers);
-        }
-        if (hasUppercase) {
-            possibleEntries.push(...uppercase);
-        }
-        if (hasSymbols) {
-            possibleEntries.push(...symbols);
-        }
-        return possibleEntries;
     }
-    function generatePassword(possibleEntries) {
+    function fillPasswordStrengthMeter(passwordStrength) {
+        let backgroundColor = strengthBackgroundColor(passwordStrength);
+        debugger;
+        switch (passwordStrength) {
+            case "STRONG":
+                meterRating4.style.backgroundColor = backgroundColor;
+            case "MEDIUM":
+                meterRating3.style.backgroundColor = backgroundColor;
+            case "WEAK":
+                meterRating2.style.backgroundColor = backgroundColor;
+            case "TOO WEAK!":
+                meterRating1.style.backgroundColor = backgroundColor;
+                break;
+        }
+    }
+
+    function strengthBackgroundColor(passwordStrength) {
+        const tooWeakBackgroundColor = "hsl(0,91%,63%)";
+        const weakBackgroundColor = "hsl(42,91%,68%)";
+        const mediumBackgroundColor = "hsl(13,95%,66%)";
+        const strongBackgroundColor = "hsl(127,100%,82%)";
+
+        if (passwordStrength === "STRONG") {
+            return strongBackgroundColor;
+        } else if (passwordStrength === "MEDIUM") {
+            return mediumBackgroundColor;
+        } else if (passwordStrength === "WEAK") {
+            return weakBackgroundColor;
+        } else {
+            return tooWeakBackgroundColor;
+        }
+    }
+
+    function clearBackgroundColorMeters() {
+        meterRating1.style.backgroundColor = "transparent";
+        meterRating2.style.backgroundColor = "transparent";
+        meterRating3.style.backgroundColor = "transparent";
+        meterRating4.style.backgroundColor = "transparent";
+    }
+
+    function checkPasswordStrength(password) {
+        return zxcvbn(password).score;
+    }
+
+    function generateOptions(options, hasLowercase, hasUppercase, hasSymbols, hasNumbers) {
+        if (hasNumbers) {
+            options.push("numbers");
+        } if (hasLowercase) {
+            options.push("lowercase");
+        } if (hasSymbols) {
+            options.push("symbols");
+        } if (hasUppercase) {
+            options.push("uppercase");
+        }
+        return options
+    }
+
+    function generateRandomCharacter(randomOption) {
+        switch (randomOption) {
+            case "symbols":
+                {
+                    const randomIndex = window.crypto.getRandomValues(new Uint8Array(1))[0] % symbols.length;
+                    return symbols[randomIndex];
+                }
+            case 'uppercase':
+                {
+                    const randomIndex = window.crypto.getRandomValues(new Uint8Array(1))[0] % lowercase.length;
+                    return lowercase[randomIndex].toUpperCase();
+                }
+            case 'lowercase':
+                {
+                    const randomIndex = window.crypto.getRandomValues(new Uint8Array(1))[0] % lowercase.length;
+                    return lowercase[randomIndex];
+                }
+            case 'numbers':
+                {
+                    const randomIndex = window.crypto.getRandomValues(new Uint8Array(1))[0] % numbers.length;
+                    return numbers[randomIndex];
+                }
+        }
+    }
+    function generatePassword(hasLowercase, hasUppercase, hasSymbols, hasNumbers) {
         const passwordLength = Number(document.getElementById("sliderValue").textContent);
+        let options = [];
+        options = generateOptions(options, hasLowercase, hasUppercase, hasSymbols, hasNumbers);
         let password = '';
 
         for (let i = 0; i < passwordLength; i++) {
-            const randomIndex = Math.floor(Math.random() * possibleEntries.length);
-            password += possibleEntries[randomIndex];
+            if (options.length === 0) {
+                options = generateOptions(options, hasLowercase, hasUppercase, hasSymbols, hasNumbers);
+            }
+            const randomIndex = window.crypto.getRandomValues(new Uint8Array(1))[0] % options.length;
+            password += generateRandomCharacter(options[randomIndex]);
+            options.splice(randomIndex, 1);
         }
         return password;
     }

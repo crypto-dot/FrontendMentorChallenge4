@@ -8,7 +8,8 @@
     <title>Password Generator</title>
     <link rel="stylesheet" href="./index.css">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon-32x32.png">
-    <script defer src="./index.js"></script>
+    <script type="text/javascript" src="zxcvbn.js"></script>
+    <script type="module" defer src="./index.js"></script>
 </head>
 
 <body>
@@ -31,7 +32,7 @@
                     <label class="label label--mainSlider" for="mainSlider">Character Length </label>
                     <div id="sliderValue" class="block block--characterNumber">14</div>
                 </div>
-                <input type="range" min="8" max="20" class="slider" id="mainSlider" />
+                <input type="range" min="3" max="20" class="slider" id="mainSlider" />
                 <div class="block block--checkboxItem">
                     <svg class="svg svg--check" alt="" width="14" height="12" xmlns="http://www.w3.org/2000/svg">
                         <path stroke="#18171F" stroke-width="3" fill="none" d="M1 5.607 4.393 9l8-8" />
@@ -63,14 +64,15 @@
                 </div>
                 <div class="block block--strengthContainer">
                     <h2 class="h2 h2--strength">STRENGTH</h2>
-                    <h2 class="h2 h2--strengthCalc">MEDIUM
+                    <div class="h2 h2--strengthCalc">
+                        <h2 id="strengthOutput"></h2>
                         <div class="block block--meterRatings">
-                            <div class="block block--meterRating"></div>
-                            <div class="block block--meterRating"></div>
-                            <div class="block block--meterRating"></div>
-                            <div class="block block--meterRating"></div>
+                            <div id="meterRating1" class="block block--meterRating"></div>
+                            <div id="meterRating2" class="block block--meterRating"></div>
+                            <div id="meterRating3" class="block block--meterRating"></div>
+                            <div id="meterRating4" class="block block--meterRating"></div>
                         </div>
-                    </h2>
+                    </div>
                 </div>
                 <button class="button">Generate</button>
             </form>
