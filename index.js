@@ -168,7 +168,9 @@
         copySVG.addEventListener("click", () => {
             copyStatus.style.opacity = '1';
             copySVG.style.pointerEvents = 'none';
-            setInterval(() => {
+            debugger;
+            setTimeout(() => {
+                debugger;
                 copyStatus.style.opacity = '0';
                 copySVG.style.pointerEvents = 'auto';
             }, 4000);
