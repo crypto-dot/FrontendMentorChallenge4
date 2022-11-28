@@ -8,9 +8,10 @@
 })();
 
 
-(function AtLeastOneCheckBoxCheck() {
 
-})();
+// (function AtLeastOneCheckBoxCheck() {
+//     const
+// })();
 
 
 
@@ -18,6 +19,7 @@
     const form = document.getElementById("form");
     const passwordOutput = document.getElementById("passwordOutput");
     const strengthOutput = document.getElementById("strengthOutput");
+    let password = '';
     const meterRating1 = document.getElementById("meterRating1");
     const meterRating2 = document.getElementById("meterRating2");
     const meterRating3 = document.getElementById("meterRating3");
@@ -26,6 +28,7 @@
     const lowercase = 'abcdefghijklmnopqrstuvwxyz';
     const symbols = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '{', '[', '}', ']', '|', '\\', ':', ';', '"', "'", '<', ',', '>', '.', '?', '/', ' '];
 
+
     (function formSubmissionEventHandler() {
         form.addEventListener("submit", (e) => {
             e.preventDefault();
@@ -33,7 +36,7 @@
             const uppercaseInput = document.getElementById("uppercase");
             const symbolsInput = document.getElementById("symbols");
             const numbersInput = document.getElementById("numbers");
-            const password = generatePassword(lowercaseInput.checked, uppercaseInput.checked, symbolsInput.checked, numbersInput.checked);
+            password = generatePassword(lowercaseInput.checked, uppercaseInput.checked, symbolsInput.checked, numbersInput.checked);
 
             passwordOutput.textContent = password;
             const passwordStrength = setPasswordStrength(password);
@@ -43,7 +46,6 @@
     })();
 
     function setPasswordStrength(password) {
-        debugger;
         const passwordStrength = checkPasswordStrength(password);
         if (passwordStrength >= 3) {
             strengthOutput.textContent = "STRONG";
@@ -59,9 +61,9 @@
             return "TOO WEAK!"
         }
     }
+
     function fillPasswordStrengthMeter(passwordStrength) {
         let backgroundColor = strengthBackgroundColor(passwordStrength);
-        debugger;
         switch (passwordStrength) {
             case "STRONG":
                 meterRating4.style.backgroundColor = backgroundColor;
@@ -102,7 +104,9 @@
     function checkPasswordStrength(password) {
         return zxcvbn(password).score;
     }
+    // Password generation process 
 
+    //Forces the password to have an equal probability depending on the available options (For passwords greater than 8 characters it's guaranteed to have all the options (if all options are selected by the user))
     function generateOptions(options, hasLowercase, hasUppercase, hasSymbols, hasNumbers) {
         if (hasNumbers) {
             options.push("numbers");
@@ -115,7 +119,7 @@
         }
         return options
     }
-
+    //Chooses a random character based on the option given
     function generateRandomCharacter(randomOption) {
         switch (randomOption) {
             case "symbols":
@@ -156,4 +160,21 @@
         }
         return password;
     }
+    // password copy functionality
+    // accesses the password stored in this module
+    (function attachCopyEventListener() {
+        const copyStatus = document.getElementById("copyStatus");
+        const copySVG = document.getElementById("copy");
+        copySVG.addEventListener("click", () => {
+            copyStatus.style.opacity = '1';
+            copySVG.style.pointerEvents = 'none';
+            setInterval(() => {
+                copyStatus.style.opacity = '0';
+                copySVG.style.pointerEvents = 'auto';
+            }, 4000);
+            window.navigator.clipboard.writeText(password).catch((err) => {
+                copyStatus.textContent = 'Unsuccessful Copy';
+            });
+        });
+    })();
 })();

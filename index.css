@@ -80,14 +80,42 @@ body {
     cursor: pointer;
 }
 
-.input--checkbox:disabled {
-    cursor: not-allowed;
-}
-
 .svg--copy {
     cursor: pointer;
 }
 
+.block--copy,
+.h2--strength {
+    cursor: default;
+}
+
+.block--copy {
+    font-size: .9rem;
+    position: absolute;
+    background-color: rgba(50, 50, 50, 0.721);
+    top: -4rem;
+    left: -5.25rem;
+    text-align: center;
+    width: 22ch;
+    border-radius: .25rem;
+    opacity: 0;
+    transition: 1s all;
+}
+
+.block--copy::after {
+    content: "";
+    border-width: 20px;
+    border-style: solid;
+    border-color: rgba(50, 50, 50, 0.721) transparent transparent transparent;
+    position: absolute;
+    left: 40%;
+    top: 100%;
+    bottom: -1rem;
+}
+
+.block--wrapperSVG {
+    position: relative;
+}
 
 .svg--check {
     position: relative;
