@@ -7,27 +7,44 @@
     });
 })();
 
+(function AtLeastOneCheckBoxCheck() {
+    const lowercaseInput = document.getElementById("lowercase");
+    const uppercaseInput = document.getElementById("uppercase");
+    const symbolsInput = document.getElementById("symbols");
+    const numbersInput = document.getElementById("numbers");
+    let numberSelected = 3;
 
+    lowercaseInput.addEventListener("change", leastOneSelected);
+    uppercaseInput.addEventListener("change", leastOneSelected);
+    symbolsInput.addEventListener("change", leastOneSelected);
+    numbersInput.addEventListener("change", leastOneSelected);
 
-// (function AtLeastOneCheckBoxCheck() {
-//     const
-// })();
-
-
+    function leastOneSelected(e) {
+        if (!e.target.checked && numberSelected === 1) {
+            e.target.checked = true;
+        } else if (!e.target.checked) {
+            numberSelected--;
+        } else {
+            numberSelected++;
+        }
+    }
+})();
 
 (function formSubmissionProcess() {
     const form = document.getElementById("form");
     const passwordOutput = document.getElementById("passwordOutput");
     const strengthOutput = document.getElementById("strengthOutput");
-    let password = '';
+
+    let password = 'PTx1f5DaFX(Don\'t use this as your password idiot!)';
+
     const meterRating1 = document.getElementById("meterRating1");
     const meterRating2 = document.getElementById("meterRating2");
     const meterRating3 = document.getElementById("meterRating3");
     const meterRating4 = document.getElementById("meterRating4");
+
     const numbers = '1234567890';
     const lowercase = 'abcdefghijklmnopqrstuvwxyz';
     const symbols = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '{', '[', '}', ']', '|', '\\', ':', ';', '"', "'", '<', ',', '>', '.', '?', '/', ' '];
-
 
     (function formSubmissionEventHandler() {
         form.addEventListener("submit", (e) => {
@@ -79,8 +96,8 @@
 
     function strengthBackgroundColor(passwordStrength) {
         const tooWeakBackgroundColor = "hsl(0,91%,63%)";
-        const weakBackgroundColor = "hsl(42,91%,68%)";
-        const mediumBackgroundColor = "hsl(13,95%,66%)";
+        const weakBackgroundColor = "hsl(13,95%,66%)";
+        const mediumBackgroundColor = "hsl(42,91%,68%)";
         const strongBackgroundColor = "hsl(127,100%,82%)";
 
         if (passwordStrength === "STRONG") {
@@ -106,7 +123,7 @@
     }
     // Password generation process 
 
-    //Forces the password to have an equal probability depending on the available options (For passwords greater than 8 characters it's guaranteed to have all the options (if all options are selected by the user))
+    //Forces the password to have an equal probability depending on the available options (For passwords greater than or equal to 8 characters it's guaranteed to have all the options (if all options are selected by the user))
     function generateOptions(options, hasLowercase, hasUppercase, hasSymbols, hasNumbers) {
         if (hasNumbers) {
             options.push("numbers");
@@ -145,7 +162,8 @@
         }
     }
     function generatePassword(hasLowercase, hasUppercase, hasSymbols, hasNumbers) {
-        const passwordLength = Number(document.getElementById("sliderValue").textContent);
+        const passwordLength = Number(document.getElementById("mainSlider").value);
+
         let options = [];
         options = generateOptions(options, hasLowercase, hasUppercase, hasSymbols, hasNumbers);
         let password = '';

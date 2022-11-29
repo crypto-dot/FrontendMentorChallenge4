@@ -33,14 +33,14 @@
             <form id="form" class="form form--main">
                 <div class="block block--upper">
                     <label class="label label--mainSlider" for="mainSlider">Character Length </label>
-                    <div id="sliderValue" class="block block--characterNumber">14</div>
+                    <div id="sliderValue" class="block block--characterNumber">12</div>
                 </div>
                 <input type="range" min="3" max="20" class="slider" id="mainSlider" />
                 <div class="block block--checkboxItem">
                     <svg class="svg svg--check" alt="" width="14" height="12" xmlns="http://www.w3.org/2000/svg">
                         <path stroke="#18171F" stroke-width="3" fill="none" d="M1 5.607 4.393 9l8-8" />
                     </svg>
-                    <input class='input input--checkbox' id="uppercase" name="uppercase" type="checkbox" />
+                    <input checked class='input input--checkbox' id="uppercase" name="uppercase" type="checkbox" />
                     <label class="label label--checkbox" for="uppercase">Include Uppercase Letters</label>
                 </div>
                 <div class="block block--checkboxItem">
@@ -54,7 +54,7 @@
                     <svg class="svg svg--check" alt="" width="14" height="12" xmlns="http://www.w3.org/2000/svg">
                         <path stroke="#18171F" stroke-width="3" fill="none" d="M1 5.607 4.393 9l8-8" />
                     </svg>
-                    <input name="numbers" class='input input--checkbox' id="numbers" type="checkbox" />
+                    <input checked name="numbers" class='input input--checkbox' id="numbers" type="checkbox" />
                     <label class="label label--checkbox" for="numbers">Include Numbers</label>
                 </div>
                 <div class="block block--checkboxItem">
@@ -67,7 +67,7 @@
                 <div class="block block--strengthContainer">
                     <h2 class="h2 h2--strength">STRENGTH</h2>
                     <div class="h2 h2--strengthCalc">
-                        <h2 id="strengthOutput"></h2>
+                        <h2 id="strengthOutput">MEDIUM</h2>
                         <div class="block block--meterRatings">
                             <div id="meterRating1" class="block block--meterRating"></div>
                             <div id="meterRating2" class="block block--meterRating"></div>
@@ -76,7 +76,11 @@
                         </div>
                     </div>
                 </div>
-                <button class="button">Generate</button>
+                <button class="button">GENERATE <svg class="svg svg--button" width="12" height="12"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#24232C"
+                            d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z" />
+                    </svg></button>
             </form>
         </section>
     </main>

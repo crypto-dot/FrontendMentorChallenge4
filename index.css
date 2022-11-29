@@ -6,8 +6,8 @@
 :root {
     /* Heights / Widths */
     --padding-password-container: 2rem;
-    --width-password-container: 33rem;
-    --height-password-container: 38rem;
+    --width-password-container: 33.75rem;
+    --height-password-container: 39.5rem;
     --height-passwordOutput-container: 5rem;
     --height-strength-container: 4.5rem;
     --button-height: 4.0625rem;
@@ -66,8 +66,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     background-color: var(--password-generator-bg-color);
 }
 
@@ -147,12 +147,6 @@ body {
     line-height: var(--body-line-height);
 }
 
-.slider {
-    background: linear-gradient(to right, hsl(127, 100%, 82%) 0%, hsl(127, 100%, 82%) 50%, var(--strength-container-bg-color) 50%, var(--strength-container-bg-color) 100%);
-    height: 7px;
-    transition: background 450ms ease-in;
-    -webkit-appearance: none;
-}
 
 .label--checkbox::before,
 .label--checkbox::after {
@@ -197,9 +191,11 @@ body {
 .slider {
     -webkit-appearance: none;
     appearance: none;
-    height: .3rem;
+    height: .5rem;
     margin-top: 1.5rem;
     margin-bottom: 2.5rem;
+    background: linear-gradient(to right, hsl(127, 100%, 82%) 0%, hsl(127, 100%, 82%) 50%, var(--strength-container-bg-color) 50%, var(--strength-container-bg-color) 100%);
+    transition: background 450ms ease-in;
 }
 
 .slider::-webkit-slider-thumb {
@@ -252,7 +248,7 @@ body {
 
 .block--checkboxItem {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
     position: relative;
     margin-bottom: 1.25rem;
 }
@@ -274,4 +270,14 @@ body {
 
 .button:hover {
     background-color: hsl(127, 51%, 70%);
+}
+
+.svg--button {
+    margin-left: 1rem;
+}
+
+#meterRating1,
+#meterRating2,
+#meterRating3 {
+    background-color: hsl(42, 91%, 68%);
 }
