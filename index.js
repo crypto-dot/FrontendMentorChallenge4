@@ -1,5 +1,5 @@
 
-(function styleSliderDisplayValue() {
+(function styleSliderAndDisplayValue() {
     document.getElementById("mainSlider").addEventListener("input", (e) => {
         let value = (e.target.value - e.target.min) / (e.target.max - e.target.min) * 100;
         e.target.style.background = `linear-gradient(to right, hsl(127, 100%, 82%) 0%, hsl(127, 100%, 82%) ${value}%, hsl(248, 15%, 11%) ${value}%, hsl(248, 15%, 11%) 100%)`;
