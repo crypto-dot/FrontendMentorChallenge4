@@ -11,7 +11,6 @@
     --height-passwordOutput-container: 5rem;
     --height-strength-container: 4.5rem;
     --button-height: 4.0625rem;
-    --button-width: 29.75rem;
 
     /* Font sizes/ weight(s) */
     --heading-l-font-size: 2rem;
@@ -100,6 +99,10 @@ body {
     border-radius: .25rem;
     opacity: 0;
     transition: 1s all;
+}
+
+.h2--strengthDesc {
+    font-size: var(--heading-m-font-size);
 }
 
 .block--copy::after {
@@ -231,6 +234,10 @@ body {
     display: flex;
 }
 
+.h2--strengthCalc {
+    align-items: center;
+}
+
 .block--meterRatings {
     margin-left: 1rem;
     gap: .5rem;
@@ -242,7 +249,9 @@ body {
     justify-content: space-between;
     margin-bottom: 2rem;
     height: var(--height-strength-container);
-    padding: var(--padding-password-container);
+    padding-top: .25rem;
+    padding-left: var(--padding-password-container);
+    padding-right: var(--padding-password-container);
     background-color: var(--strength-container-bg-color);
 }
 
@@ -280,4 +289,70 @@ body {
 #meterRating2,
 #meterRating3 {
     background-color: hsl(42, 91%, 68%);
+    border: none;
+}
+
+@media (max-width:632px) {
+    :root {
+        --width-password-container: 21.4375rem;
+        --height-password-container: 31.4375rem;
+        --body-m-font-size: 1.125rem;
+        --body-font-size: 1rem;
+        --heading-l-font-size: var(--heading-m-font-size);
+        --padding-password-container: .5rem;
+        --height-passwordOutput-container: 4rem;
+        --height-strength-container: 3.5rem;
+        --height-passwordOutput-container: 4rem;
+        --button-height: 3.5rem;
+    }
+
+    main {
+        overflow: hidden;
+    }
+
+    .form--main {
+        padding: 1rem;
+    }
+
+    .slider {
+        margin-top: .5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .block--strengthContainer {
+        margin-bottom: 1rem;
+    }
+
+    .h2--strengthDesc {
+        font-size: var(--body-font-size);
+    }
+
+    .section--passwordOutput {
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (max-width:350px) {
+    :root {
+        --width-password-container: 15.4375rem;
+        --height-password-container: 31.4375rem;
+        --body-m-font-size: 1rem;
+        --body-font-size: .8rem;
+        --heading-l-font-size: 1.25rem;
+        --heading-m-font-size: 1.15rem --padding-password-container: .5rem;
+        --height-passwordOutput-container: 4rem;
+        --height-strength-container: 3.5rem;
+        --height-passwordOutput-container: 4rem;
+        --button-height: 3.5rem;
+    }
+
+    .block--checkboxItem {
+        gap: 1rem;
+    }
+
+    .form--main {
+        padding: .5rem;
+    }
 }

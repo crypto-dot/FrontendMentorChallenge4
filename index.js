@@ -37,10 +37,10 @@
 
     let password = 'PTx1f5DaFX(Don\'t use this as your password idiot!)';
 
-    const meterRating1 = document.getElementById("meterRating1");
-    const meterRating2 = document.getElementById("meterRating2");
-    const meterRating3 = document.getElementById("meterRating3");
-    const meterRating4 = document.getElementById("meterRating4");
+    let meterRating1 = document.getElementById("meterRating1");
+    let meterRating2 = document.getElementById("meterRating2");
+    let meterRating3 = document.getElementById("meterRating3");
+    let meterRating4 = document.getElementById("meterRating4");
 
     const numbers = '1234567890';
     const lowercase = 'abcdefghijklmnopqrstuvwxyz';
@@ -84,12 +84,16 @@
         switch (passwordStrength) {
             case "STRONG":
                 meterRating4.style.backgroundColor = backgroundColor;
+                meterRating4.style.border = `2px solid ${backgroundColor}`;
             case "MEDIUM":
                 meterRating3.style.backgroundColor = backgroundColor;
+                meterRating3.style.border = `2px solid ${backgroundColor}`;
             case "WEAK":
                 meterRating2.style.backgroundColor = backgroundColor;
+                meterRating2.style.border = `2px solid ${backgroundColor}`;
             case "TOO WEAK!":
                 meterRating1.style.backgroundColor = backgroundColor;
+                meterRating1.style.border = `2px solid ${backgroundColor}`;
                 break;
         }
     }
@@ -112,10 +116,15 @@
     }
 
     function clearBackgroundColorMeters() {
+        debugger;
         meterRating1.style.backgroundColor = "transparent";
+        meterRating1.style.border = "2px solid hsl(252, 11%, 91%)"
         meterRating2.style.backgroundColor = "transparent";
+        meterRating2.style.border = "2px solid hsl(252, 11%, 91%)"
         meterRating3.style.backgroundColor = "transparent";
+        meterRating3.style.border = "2px solid hsl(252, 11%, 91%)"
         meterRating4.style.backgroundColor = "transparent";
+        meterRating4.style.border = "2px solid hsl(252, 11%, 91%)"
     }
 
     function checkPasswordStrength(password) {
