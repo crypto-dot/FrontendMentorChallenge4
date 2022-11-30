@@ -8,8 +8,8 @@
     <title>Password Generator</title>
     <link rel="stylesheet" href="./index.css">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon-32x32.png">
-    <script type="text/javascript" src="zxcvbn.js"></script>
-    <script type="module" defer src="./index.js"></script>
+    <script src="zxcvbn.js"></script>
+    <scr defer src="./index.js"></script>
 </head>
 
 <body>
@@ -37,28 +37,28 @@
                 </div>
                 <input type="range" min="3" max="20" class="slider" id="mainSlider" />
                 <div class="block block--checkboxItem">
-                    <svg class="svg svg--check" alt="" width="14" height="12" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="svg svg--check" width="14" height="12" xmlns="http://www.w3.org/2000/svg">
                         <path stroke="#18171F" stroke-width="3" fill="none" d="M1 5.607 4.393 9l8-8" />
                     </svg>
                     <input checked class='input input--checkbox' id="uppercase" name="uppercase" type="checkbox" />
                     <label class="label label--checkbox" for="uppercase">Include Uppercase Letters</label>
                 </div>
                 <div class="block block--checkboxItem">
-                    <svg class="svg svg--check" alt="" width="14" height="12" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="svg svg--check" width="14" height="12" xmlns="http://www.w3.org/2000/svg">
                         <path stroke="#18171F" stroke-width="3" fill="none" d="M1 5.607 4.393 9l8-8" />
                     </svg>
                     <input name="lowercase" checked class='input input--checkbox' id="lowercase" type="checkbox" />
                     <label class="label label--checkbox" for="lowercase">Include Lowercase Letters</label>
                 </div>
                 <div class="block block--checkboxItem">
-                    <svg class="svg svg--check" alt="" width="14" height="12" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="svg svg--check"  width="14" height="12" xmlns="http://www.w3.org/2000/svg">
                         <path stroke="#18171F" stroke-width="3" fill="none" d="M1 5.607 4.393 9l8-8" />
                     </svg>
                     <input checked name="numbers" class='input input--checkbox' id="numbers" type="checkbox" />
                     <label class="label label--checkbox" for="numbers">Include Numbers</label>
                 </div>
                 <div class="block block--checkboxItem">
-                    <svg class="svg svg--check" alt="" width="14" height="12" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="svg svg--check"  width="14" height="12" xmlns="http://www.w3.org/2000/svg">
                         <path stroke="#18171F" stroke-width="3" fill="none" d="M1 5.607 4.393 9l8-8" />
                     </svg>
                     <input name="symbols" class='input input--checkbox' id="symbols" type="checkbox" />
