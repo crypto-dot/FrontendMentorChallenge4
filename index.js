@@ -116,7 +116,6 @@
     }
 
     function clearBackgroundColorMeters() {
-        debugger;
         meterRating1.style.backgroundColor = "transparent";
         meterRating1.style.border = "2px solid hsl(252, 11%, 91%)"
         meterRating2.style.backgroundColor = "transparent";
@@ -195,14 +194,12 @@
         copySVG.addEventListener("click", () => {
             copyStatus.style.opacity = '1';
             copySVG.style.pointerEvents = 'none';
-            debugger;
             setTimeout(() => {
-                debugger;
                 copyStatus.style.opacity = '0';
                 copySVG.style.pointerEvents = 'auto';
             }, 4000);
             window.navigator.clipboard.writeText(password).catch((err) => {
-                copyStatus.textContent = 'Unsuccessful Copy';
+                copyStatus.textContent = 'ERROR';
             });
         });
     })();

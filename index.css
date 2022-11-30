@@ -93,12 +93,12 @@ body {
     position: absolute;
     background-color: rgba(50, 50, 50, 0.721);
     top: -4rem;
-    left: -5.25rem;
+    left: -2rem;
     text-align: center;
-    width: 22ch;
+    width: 10ch;
     border-radius: .25rem;
     opacity: 0;
-    transition: 1s all;
+    transition: .5s all;
 }
 
 .h2--strengthDesc {
@@ -107,11 +107,11 @@ body {
 
 .block--copy::after {
     content: "";
-    border-width: 20px;
+    border-width: 1rem;
     border-style: solid;
     border-color: rgba(50, 50, 50, 0.721) transparent transparent transparent;
     position: absolute;
-    left: 40%;
+    left: 32.5%;
     top: 100%;
     bottom: -1rem;
 }
@@ -292,6 +292,11 @@ body {
     border: none;
 }
 
+.block--passwordOutput {
+    max-width: 90%;
+    overflow: scroll;
+}
+
 @media (max-width:632px) {
     :root {
         --width-password-container: 21.4375rem;
@@ -308,6 +313,17 @@ body {
 
     main {
         overflow: hidden;
+    }
+
+    .block--copy::after {
+        border-width: .625rem;
+        left: 35%;
+    }
+
+    .block--copy {
+        top: -3.5rem;
+        left: -1.5rem;
+        width: 7ch;
     }
 
     .form--main {
