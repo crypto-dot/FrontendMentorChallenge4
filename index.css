@@ -295,6 +295,12 @@ body {
 .block--passwordOutput {
     max-width: 90%;
     overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.block--passwordOutput::-webkit-scrollbar {
+    display: none;
 }
 
 @media (max-width:632px) {
