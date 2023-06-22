@@ -30,8 +30,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Click for soluton website](https://crypto-dot.github.io/FrontendMentorChallenge4/)
 
 ## My process
     I first tackled the hardest parts. How to style the HTML5 slider element and how to style checkboxes without sacrificing semantic HTML. Then I worked on the Javascript part looking for simple libraries that can function as password strength display. Zxcvbn was the only library I could find at the time and it seemed very simple and straightfoward to use.
